@@ -7,5 +7,5 @@ cervezas_id:
     defaults: { _controller: cervezasBundle:Default:id}
 
 cervezas_crear:
-    path:     /crearCerveza
-    defaults: { _controller: cervezasBundle:cervezas:crearCerveza}
+    path:     /crearCerveza/{nombre}/{pais}/{poblacion}/{tipo}
+    defaults: { _controller: cervezasBundle:Cerveza:crearCerveza}

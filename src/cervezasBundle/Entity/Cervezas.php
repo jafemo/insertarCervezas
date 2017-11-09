@@ -61,7 +61,7 @@ class Cervezas
      *
      * @ORM\Column(name="tamaño", type="integer")
      */
-    private $tamanyo;
+    private $tamaño;
 
     /**
      * @var \DateTime

@@ -7,22 +7,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use cervezasBundle\Entity\Cervezas;
 
 class CervezaController extends Controller{
-    public function crearCervezaAction(){
-      $mangeDoct=$this->getDoctrine()->getManager();
+    public function crearCervezaAction($nombre,$pais, $poblacion, $tipo){
+
       //Nuevo Objeto de tipo Cervezas
       $cerveza = new Cervezas();
-      $cerveza->setNombre('nombre');
-      $cerveza->setPais('pais');
-      $cerveza->setPoblacion('poblacion');
-      $cerveza->setTipo('tipo');
+      $cerveza->setNombre($nombre);
+      $cerveza->setPais($pais);
+      $cerveza->setPoblacion($poblacion);
+      $cerveza->setTipo($tipo);
       $cerveza->setImportacion(true);
-      $cerveza->setTamanyo(20);
-      $cerveza->setFechaAlmacen(new \DateTime('20-20-2019'));
+      $cerveza->setTamaño(20);
+      $cerveza->setFechaAlmacen(\DateTime::createFromFormat("d/m/Y","24/12/2018"));
       $cerveza->setCantidad(20);
-      $cerveza->setFoto('amstel');
+      $cerveza->setFoto('.png');
 
       //Doctrine
-
+      $mangeDoct=$this->getDoctrine()->getManager();
       $mangeDoct->persist($cerveza);
       $mangeDoct->flush();
       return $this->render('cervezasBundle:Cervezas:crearCerveza.html.twig',array("cervezas"=>$cerveza));
